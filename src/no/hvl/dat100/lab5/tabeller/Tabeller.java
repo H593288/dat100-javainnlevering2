@@ -19,7 +19,11 @@ public class Tabeller {
 		
 		String streng = "[";
 		for(int i=0; i < tabell.length; i++) {
-			   streng += tabell[i] + " ";
+			   streng += tabell[i];
+			  
+			   if (i < tabell.length - 1) {
+				   streng = streng + ",";
+			   }
 		
 	}
 	
@@ -33,34 +37,31 @@ public class Tabeller {
 		
 		// for-løkke
 		int sum = 0;
-		for (int i = 0; i < tabell.length; i++)
+		for (int i = 0; i < tabell.length; i++) {
 			sum += tabell [i];
 		
+		}
 		return sum;
-	}
 		
-	public static int summer1(int[] tabell) {
+	}
 		// while løkke
-		int sum1 = 0;
-		int i = 0;
-		while (i < tabell.length) {
-			sum1 += tabell [i];
-			i++;
-		}
-		
-		return sum1;
-	
-		}
-	
-	public static int summer2(int[] tabell) {
-		// utvidet for-løkke
-		int sum2 = 0;
-		for (int j : tabell) {
-			sum2 += j;	
-	}
-		
-		return sum2;
-	}
+			//	int sum1 = 0;
+			//	int k = 0;
+			//	while (k < tabell.length) {
+			//		sum1 += tabell [k];
+			//		k++;
+			//	}
+				
+	//			System.out.println(sum1);
+	//	}
+
+				// utvidet for-løkke
+	//			int sum2 = 0;
+	//			for (int j : tabell) {
+	//				sum2 += j;	
+	//		}	
+	//			System.out.println(sum2);
+
 
 	// d)
 	public static boolean finnesTall(int[] tabell, int tall) {
@@ -78,12 +79,13 @@ public class Tabeller {
 
 	// e)
 	public static int posisjonTall(int[] tabell, int tall) {
-
+		
+		int posisjon = -1;
 		for (int i = 0; i < tabell.length; i++)
 			if (tabell[i] == tall)
 				return i;
 		
-		return -1;
+		return posisjon;
 
 	}
 
@@ -129,6 +131,6 @@ public class Tabeller {
 		return tabell3;
 	}
 
-}
+} 
 
 

@@ -51,7 +51,7 @@ public class Matriser {
 					
 				if (a[i][j] != b[i][j]) {
 					
-					return false;
+					lik = false;
 				}
 			}
 			
@@ -61,16 +61,45 @@ public class Matriser {
 	// e)
 	public static int[][] speile(int[][] matrise) {
 
-		// TODO
-		throw new UnsupportedOperationException("speile ikke implementert");
-	
+		int a = matrise.length;
+		int [][] nymatrise = new int [a][a];
+		for (int i=0; i < a; i++) 
+			for (int j=0; j < a; j++) {
+				nymatrise[i][j] = matrise [j][i];
+			}
+		
+		return nymatrise;
 	}
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
 
-		// TODO
-		throw new UnsupportedOperationException("multipliser ikke implementert");
-	
-	}
+		int aRad = a.length;
+		int aKolonne = a[0].length;
+		int bRad = b.length;
+		int bKolonne = b[0].length;
+		
+		if (aKolonne != bKolonne) {
+		throw new UnsupportedOperationException("aKolonne: " + aKolonne + "matcher ikke bKolonne" + bKolonne + ".");
+		}
+		
+		int [][] c = new int [aRad][bRad]; 
+		
+		for (int i=0; i< aRad; i++) {
+			for (int j=0; j <bKolonne; j++) {
+				c[i][j] = 0;
+			}
+		}
+		
+		for (int i=0; i < aRad; i++) {
+			for (int j=0; j < bKolonne; j++) {
+				for (int k=0; k < aKolonne; k++) {
+					c[i][j] += a[i][k]*b[k][j];
+				}
+				
+			}
+		}
+		
+		return c;
+}
 }
